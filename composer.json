@@ -1,0 +1,127 @@
+{
+    "name": "immediate/im-pl-sponsor-tracking",
+    "description": "IM pl sponsor tracking Plugin",
+    "type": "wordpress-plugin",
+    "license": "proprietary",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=7.4 || >=8.0",
+        "immediate/im-wp-plugin": "^2.0",
+        "immediate/im-headless-settings": "^2.0",
+        "immediate/im-headless-api-contracts": "^1.15",
+        "immediate/im-options-wrapper": "^1.1",
+        "immediate/im-auth-token-generator": "^1.0",
+        "immediate/im-form-wrapper": "^2.0",
+        "immediate/im-wp-core-contracts": "^1.0"
+    },
+    "require-dev": {
+        "10up/wp_mock": "dev-immediate-fixes as 0.4.3",
+        "allure-framework/allure-phpunit": "^1.5",
+        "immediate/im-headless-apis": "dev-master",
+        "overtrue/phplint": "^3.2",
+        "phpmd/phpmd": "^2.12",
+        "phpunit/phpunit": "^9.5",
+        "roave/security-advisories": "dev-latest",
+        "squizlabs/php_codesniffer": "^3.7",
+        "doctrine/annotations": "1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "IM\\Fabric\\Plugin\\PlSponsorTracking\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "IM\\Fabric\\Plugin\\PlSponsorTracking\\Test\\": "tests/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.immediate.co.uk:WCP-Packages/im-wp-plugin.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.immediate.co.uk:WCP-Packages/im-fabric-wordpress.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/immediate-media/wp_mock.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.immediate.co.uk:WCP-Packages/im-asset-registration.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.immediate.co.uk:WCP-Packages/im-headless-settings.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.immediate.co.uk:WCP-Packages/im-headless-api-contracts.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.immediate.co.uk:WCP-Packages/im-options-wrapper.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.immediate.co.uk:WCP/im-headless-apis.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.immediate.co.uk:WCP-Packages/im-auth-token-generator.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.immediate.co.uk:WCP-Packages/im-form-wrapper.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.immediate.co.uk:WCP-Packages/im-headless-api-remote-entity-wrapper.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.immediate.co.uk:WCP-Packages/im-headless-post.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.immediate.co.uk:WCP-Packages/im-plugin-dependency-checker.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.immediate.co.uk:WCP-Packages/im-wp-event-transport-common.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.immediate.co.uk:WCP-Packages/im-wp-cli-registration.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.immediate.co.uk:WCP-Packages/im-wp-core-contracts.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.immediate.co.uk:WCP-Packages/im-datadog.git"
+        }
+    ],
+    "scripts": {
+        "check-coverage": "vendor/bin/phpunit --coverage-html build --whitelist src && open build/index.html",
+        "run-tests": "composer run-phpunit && composer run-phpcs && composer run-phpmd && composer run-phplint",
+        "run-phpunit": "vendor/bin/phpunit",
+        "run-phpcs": "vendor/bin/phpcs",
+        "run-phplint": "vendor/bin/phplint",
+        "run-phpmd": "vendor/bin/phpmd src text phpmd-src.xml && vendor/bin/phpmd tests text phpmd-tests.xml"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "platform": {
+            "php": "7.4"
+        },
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    }
+}
