@@ -4,21 +4,26 @@ declare(strict_types=1);
 
 namespace IM\Fabric\Plugin\PlSponsorTracking\Test;
 
+use IM\Fabric\Package\Plugin\WordPressPlugin;
+use IM\Fabric\Package\WordPress\WordPress;
+use IM\Fabric\Package\WpPost\PostTypes;
+use IM\Fabric\Plugin\PlSponsorTracking\Action\AdminFields\AddSponsorBox;
+use IM\Fabric\Plugin\PlSponsorTracking\Action\LoadPluginTextDomain;
+use IM\Fabric\Plugin\PlSponsorTracking\PlSponsorTrackingPlugin;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
-use WP_Mock;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
-class PlSponsorTrackingPlugin extends TestCase
+class PlSponsorTrackingPluginTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
     private const EXPECTED_ACTIONS = [
         ['plugins_loaded', LoadPluginTextDomain::class],
-
+        ['init', AddSponsorBox::class]
     ];
     private const EXPECTED_FILTERS = [
     ];
@@ -26,9 +31,15 @@ class PlSponsorTrackingPlugin extends TestCase
     private PlSponsorTrackingPlugin $plugin;
 
     private WordPress $wordPress;
+    private PostTypes $postTypes;
 
     public function setUp(): void
     {
+        $this->postTypes = Mockery::mock(PostTypes::class);
+        $this->postTypes->allows('getEditorialPostTypes')
+            ->andReturn(['Article' => 'article'])
+            ->byDefault();
+
         $this->wordPress = Mockery::mock(WordPress::class);
         $this->plugin = Mockery::mock(PlSponsorTrackingPlugin::class)->makePartial();
         $this->plugin->allows('get')->with(WordPress::class)->andReturn($this->wordPress);
