@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-11T07:06:39+00:00\n"
-"PO-Revision-Date: 2023-09-14 15:47+0200\n"
+"PO-Revision-Date: 2023-09-18 12:40+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pl\n"
@@ -11,3 +11,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.3.2\n"
+
+msgid "Advertising Cooperation?"
+msgstr "Współpraca reklamowa?"
+
+msgid "Campaign Active"
+msgstr "Aktywować kampanię?"
+
+msgid "Sponsor Expiration"
+msgstr "Data śledzenia (ustaw)"
+
+msgid "Tracking Pixel"
+msgstr "Kod śledzący"
+
+msgid "Add Pixel"
+msgstr "Dodaj kod śledzący"

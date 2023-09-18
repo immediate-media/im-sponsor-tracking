@@ -1,6 +1,10 @@
 <?php
 
 namespace {
+
+    WP_Mock::activateStrictMode();
+    WP_Mock::bootstrap();
+
     if (!defined('IM_PL_SPONSOR_TRACKING_PLUGIN_DIR')) {
         define('IM_PL_SPONSOR_TRACKING_PLUGIN_DIR', dirname(__FILE__) . '/');
     }
@@ -12,5 +16,6 @@ namespace {
     if (!defined('IM_PL_SPONSOR_TRACKING_PLUGIN_URL')) {
         define('IM_PL_SPONSOR_TRACKING_PLUGIN_URL', 'https://www.wordpress-root.com/plugins/name');
     }
+
 
 }

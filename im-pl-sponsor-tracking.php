@@ -17,5 +17,5 @@ define('IM_PL_SPONSOR_TRACKING_PLUGIN_ID', 'im-pl-sponsor-tracking');
 define('IM_PL_SPONSOR_TRACKING_PLUGIN_URL', plugins_url('', __FILE__));
 define('IM_PL_SPONSOR_TRACKING_PLUGIN_DIR', \plugin_dir_path(__FILE__));
 
-$plugin = new IM\Fabric\Plugin\SponsorTracking\PlSponsorTrackingPlugin();
+$plugin = new IM\Fabric\Plugin\PlSponsorTracking\PlSponsorTrackingPlugin();
 $plugin->run();
