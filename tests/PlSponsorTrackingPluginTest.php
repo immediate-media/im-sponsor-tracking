@@ -9,6 +9,7 @@ use IM\Fabric\Package\WordPress\WordPress;
 use IM\Fabric\Package\WpPost\PostTypes;
 use IM\Fabric\Plugin\PlSponsorTracking\Action\AdminFields\AddSponsorBox;
 use IM\Fabric\Plugin\PlSponsorTracking\Action\LoadPluginTextDomain;
+use IM\Fabric\Plugin\PlSponsorTracking\Filter\ValidateTrackingCode;
 use IM\Fabric\Plugin\PlSponsorTracking\PlSponsorTrackingPlugin;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
@@ -26,6 +27,7 @@ class PlSponsorTrackingPluginTest extends TestCase
         ['init', AddSponsorBox::class]
     ];
     private const EXPECTED_FILTERS = [
+        ['acf/validate_value/key=field_pl_sponsor_tracking-pixel-code', ValidateTrackingCode::class]
     ];
 
     private PlSponsorTrackingPlugin $plugin;

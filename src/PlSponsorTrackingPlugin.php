@@ -8,6 +8,7 @@ use IM\Fabric\Package\FormWrapper\Service\ACFComponentRegistration;
 use IM\Fabric\Package\FormWrapper\Service\ComponentRegistrationInterface;
 use IM\Fabric\Package\OptionsWrapper\OptionsWrapper;
 use IM\Fabric\Package\Plugin\WordPressPlugin;
+use IM\Fabric\Plugin\PlSponsorTracking\Action\AdminFields\AddSponsorBox;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
@@ -20,6 +21,11 @@ class PlSponsorTrackingPlugin extends WordPressPlugin
     {
         $this->wordPress->addAction('init', $this->get(Action\AdminFields\AddSponsorBox::class));
         $this->wordPress->addAction('plugins_loaded', $this->get(Action\LoadPluginTextDomain::class));
+
+        $this->wordPress->addFilter(
+            "acf/validate_value/key=field_" . AddSponsorBox::SPONSOR_TRACKING . "-pixel-code",
+            $this->get(Filter\ValidateTrackingCode::class)
+        );
     }
 
     /** @SuppressWarnings(PHPMD.StaticAccess) */

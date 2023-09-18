@@ -34,38 +34,6 @@ class AcfSponsorBoxFactory
             ]
         ]);
 
-        $repeaterKey = $formKey . '-item-repeater';
-
-        $trackingPixelRepeater = new Input(
-            __('Tracking Pixel', IM_PL_SPONSOR_TRACKING_PLUGIN_ID),
-            $repeaterKey,
-            'repeater',
-            [
-                'conditional_logic' => [
-                    [
-                        [
-                            'field' => 'field_' . $formKey . '-is-sponsored',
-                            'operator' => '==',
-                            'value' => 1,
-                        ],
-                    ],
-                ],
-                'wrapper' => [
-                    'width' => "",
-                    "class" => "im-no-inline-add im-hide-column-1"
-                ],
-                'button_label' => __('Add Pixel', IM_PL_SPONSOR_TRACKING_PLUGIN_ID),
-            ]
-        );
-
-        $trackingPixelRepeater->addInputs(
-            new Input(
-                __('Tracking Pixel Code', IM_PL_SPONSOR_TRACKING_PLUGIN_ID),
-                $repeaterKey . '-pixel-code',
-                'textarea'
-            ),
-        );
-
         $group->addInputs(
             new Input(
                 __('Advertising Cooperation?', IM_PL_SPONSOR_TRACKING_PLUGIN_ID),
@@ -97,7 +65,17 @@ class AcfSponsorBoxFactory
                 $formKey . '-expiration-date',
                 'date_picker'
             ),
-            $trackingPixelRepeater,
+            new Input(
+                __('Tracking Pixel Code', IM_PL_SPONSOR_TRACKING_PLUGIN_ID),
+                $formKey . '-pixel-code',
+                'textarea',
+                [
+                    'wrapper' => [
+                        'class' => 'im-compact'
+                    ],
+                    'rows' => 3
+                ]
+            ),
         );
 
 
