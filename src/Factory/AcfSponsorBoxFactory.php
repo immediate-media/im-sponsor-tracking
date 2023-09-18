@@ -65,6 +65,9 @@ class AcfSponsorBoxFactory
                 $formKey . '-expiration-date',
                 'date_picker',
                 [
+                    'return_format' => "Y-m-d",
+                    'display_format' => "Y-m-d",
+                    'first_day' => 1,
                     'conditional_logic' => [
                         [
                             [
