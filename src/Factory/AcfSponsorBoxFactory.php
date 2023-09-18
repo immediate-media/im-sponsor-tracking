@@ -63,17 +63,37 @@ class AcfSponsorBoxFactory
             new Input(
                 __('Sponsor Expiration', IM_PL_SPONSOR_TRACKING_PLUGIN_ID),
                 $formKey . '-expiration-date',
-                'date_picker'
+                'date_picker',
+                [
+                    'conditional_logic' => [
+                        [
+                            [
+                                'field' => 'field_' . $formKey . '-is-sponsored',
+                                'operator' => '==',
+                                'value' => 1,
+                            ],
+                        ],
+                    ]
+                ]
             ),
             new Input(
-                __('Tracking Pixel Code', IM_PL_SPONSOR_TRACKING_PLUGIN_ID),
+                __('Tracking Pixel', IM_PL_SPONSOR_TRACKING_PLUGIN_ID),
                 $formKey . '-pixel-code',
                 'textarea',
                 [
                     'wrapper' => [
                         'class' => 'im-compact'
                     ],
-                    'rows' => 3
+                    'rows' => 3,
+                    'conditional_logic' => [
+                        [
+                            [
+                                'field' => 'field_' . $formKey . '-is-sponsored',
+                                'operator' => '==',
+                                'value' => 1,
+                            ],
+                        ],
+                    ]
                 ]
             ),
         );
