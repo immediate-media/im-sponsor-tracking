@@ -28,10 +28,13 @@ class AddSponsorBox extends Action
     private function buildSponsorInformationRuleCollection(): RuleCollection
     {
         $ruleCollection = new RuleCollection();
+        $allowedPostType = ['post','recipe'];
 
         foreach ($this->postTypes->getEditorialPostTypes() as $postType) {
-            $rule = new Rule('post_type', '==', $postType);
-            $ruleCollection->addRuleSet($rule);
+            if (in_array($postType, $allowedPostType)) {
+                $rule = new Rule('post_type', '==', $postType);
+                $ruleCollection->addRuleSet($rule);
+            }
         }
 
         return $ruleCollection;
