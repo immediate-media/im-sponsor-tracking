@@ -16,7 +16,7 @@ class AddSponsorBox extends Action
 {
     protected $priority = 15;
 
-    public const SPONSOR_TRACKING = 'pl_sponsor_tracking';
+    public const SPONSOR_TRACKING = 'sponsor_tracking';
 
     public function __construct(
         private ComponentRegistrationInterface $componentRegistration,
