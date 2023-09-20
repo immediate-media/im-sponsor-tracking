@@ -24,7 +24,7 @@ class ValidateTrackingCodeTest extends TestCase
     {
         WP_Mock::passthruFunction('__');
         $trackingCode = 'https://invalid-domain.com?tracking';
-        $expected = 'Not allowed domains';
+        $expected = 'Not allowed domain';
         $this->assertSame($expected, $this->filter->filter(true, $trackingCode, [], 'input_name'));
     }
 

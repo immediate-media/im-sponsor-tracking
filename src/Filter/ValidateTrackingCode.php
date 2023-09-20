@@ -32,7 +32,7 @@ class ValidateTrackingCode extends Filter
         }
 
         if (!$this->isValidDomain($value)) {
-            return __('Not allowed domains');
+            return __('Not allowed domain');
         }
         return $valid;
     }
