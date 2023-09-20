@@ -27,7 +27,7 @@ class PlSponsorTrackingPluginTest extends TestCase
         ['init', AddSponsorBox::class]
     ];
     private const EXPECTED_FILTERS = [
-        ['acf/validate_value/key=field_pl_sponsor_tracking-pixel-code', ValidateTrackingCode::class]
+        ['acf/validate_value/key=field_pl_sponsor_tracking-item-repeater-pixel-code', ValidateTrackingCode::class]
     ];
 
     private PlSponsorTrackingPlugin $plugin;

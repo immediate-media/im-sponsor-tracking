@@ -23,7 +23,7 @@ class PlSponsorTrackingPlugin extends WordPressPlugin
         $this->wordPress->addAction('plugins_loaded', $this->get(Action\LoadPluginTextDomain::class));
 
         $this->wordPress->addFilter(
-            "acf/validate_value/key=field_" . AddSponsorBox::SPONSOR_TRACKING . "-pixel-code",
+            "acf/validate_value/key=field_" . AddSponsorBox::SPONSOR_TRACKING . "-item-repeater-pixel-code",
             $this->get(Filter\ValidateTrackingCode::class)
         );
     }

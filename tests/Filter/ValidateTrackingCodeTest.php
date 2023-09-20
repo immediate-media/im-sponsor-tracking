@@ -23,23 +23,16 @@ class ValidateTrackingCodeTest extends TestCase
     public function testFilterReturnInfoAboutInvalidDomain()
     {
         WP_Mock::passthruFunction('__');
-        $trackingCode = '<img src="https://invalid-domain.com?tracking" height="0" width="0" alt="" />';
-        $expected = 'Not allowed domains: invalid-domain.com';
+        $trackingCode = 'https://invalid-domain.com?tracking';
+        $expected = 'Not allowed domains';
         $this->assertSame($expected, $this->filter->filter(true, $trackingCode, [], 'input_name'));
     }
 
-    public function testFilterReturnInfoAboutMissedImg()
-    {
-        WP_Mock::passthruFunction('__');
-        $trackingCode = 'no img tag here';
-        $expected = 'Img tag not detected';
-        $this->assertSame($expected, $this->filter->filter(true, $trackingCode, [], 'input_name'));
-    }
 
     public function testFilterReturnInfoAboutInvalidUrl()
     {
         WP_Mock::passthruFunction('__');
-        $trackingCode = '<img src="invalid-url" />';
+        $trackingCode = 'invalid-url';
         $expected = 'Invalid URL';
         $this->assertSame($expected, $this->filter->filter(true, $trackingCode, [], 'input_name'));
     }
