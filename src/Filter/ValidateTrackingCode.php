@@ -1,6 +1,6 @@
 <?php
 
-namespace IM\Fabric\Plugin\PlSponsorTracking\Filter;
+namespace IM\Fabric\Plugin\SponsorTracking\Filter;
 
 use IM\Fabric\Package\WordPress\Filter\Filter;
 use DOMDocument;

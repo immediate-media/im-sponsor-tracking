@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace IM\Fabric\Plugin\PlSponsorTracking\Test;
+namespace IM\Fabric\Plugin\SponsorTracking\Test;
 
 use IM\Fabric\Package\Plugin\WordPressPlugin;
 use IM\Fabric\Package\WordPress\WordPress;
 use IM\Fabric\Package\WpPost\PostTypes;
-use IM\Fabric\Plugin\PlSponsorTracking\Action\AdminFields\AddSponsorBox;
-use IM\Fabric\Plugin\PlSponsorTracking\Action\LoadPluginTextDomain;
-use IM\Fabric\Plugin\PlSponsorTracking\Filter\ValidateTrackingCode;
-use IM\Fabric\Plugin\PlSponsorTracking\PlSponsorTrackingPlugin;
+use IM\Fabric\Plugin\SponsorTracking\Action\AdminFields\AddSponsorBox;
+use IM\Fabric\Plugin\SponsorTracking\Action\LoadPluginTextDomain;
+use IM\Fabric\Plugin\SponsorTracking\Filter\ValidateTrackingCode;
+use IM\Fabric\Plugin\SponsorTracking\SponsorTrackingPlugin;
 use Mockery;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
@@ -18,7 +18,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
-class PlSponsorTrackingPluginTest extends TestCase
+class SponsorTrackingPluginTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
@@ -30,7 +30,7 @@ class PlSponsorTrackingPluginTest extends TestCase
         ['acf/validate_value/key=field_pl_sponsor_tracking-item-repeater-pixel-code', ValidateTrackingCode::class]
     ];
 
-    private PlSponsorTrackingPlugin $plugin;
+    private SponsorTrackingPlugin $plugin;
 
     private WordPress $wordPress;
     private PostTypes $postTypes;
@@ -43,7 +43,7 @@ class PlSponsorTrackingPluginTest extends TestCase
             ->byDefault();
 
         $this->wordPress = Mockery::mock(WordPress::class);
-        $this->plugin = Mockery::mock(PlSponsorTrackingPlugin::class)->makePartial();
+        $this->plugin = Mockery::mock(SponsorTrackingPlugin::class)->makePartial();
         $this->plugin->allows('get')->with(WordPress::class)->andReturn($this->wordPress);
         $this->plugin->__construct();
     }

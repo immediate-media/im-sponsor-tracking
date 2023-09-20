@@ -1,3 +1,3 @@
-# IM PL Sponsor tracking
+# IM Sponsor tracking
 
-`IM PL Sponsor tracking` is a plugin to allow editors add tracking pixel 
+`IM Sponsor tracking` is a plugin to allow editors add tracking pixel 

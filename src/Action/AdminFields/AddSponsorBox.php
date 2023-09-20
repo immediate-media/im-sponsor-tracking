@@ -1,13 +1,13 @@
 <?php
 
-namespace IM\Fabric\Plugin\PlSponsorTracking\Action\AdminFields;
+namespace IM\Fabric\Plugin\SponsorTracking\Action\AdminFields;
 
 use IM\Fabric\Package\FormWrapper\Form\Rule;
 use IM\Fabric\Package\FormWrapper\Form\RuleCollection;
 use IM\Fabric\Package\FormWrapper\Service\ComponentRegistrationInterface;
 use IM\Fabric\Package\WordPress\Action\Action;
 use IM\Fabric\Package\WpPost\PostTypes;
-use IM\Fabric\Plugin\PlSponsorTracking\Factory\AcfSponsorBoxFactory;
+use IM\Fabric\Plugin\SponsorTracking\Factory\AcfSponsorBoxFactory;
 
 /**
  * @SuppressWarnings(PHPMD.LongVariable)

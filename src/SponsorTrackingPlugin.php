@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace IM\Fabric\Plugin\PlSponsorTracking;
+namespace IM\Fabric\Plugin\SponsorTracking;
 
 use IM\Fabric\Package\FormWrapper\Service\ACFComponentRegistration;
 use IM\Fabric\Package\FormWrapper\Service\ComponentRegistrationInterface;
 use IM\Fabric\Package\OptionsWrapper\OptionsWrapper;
 use IM\Fabric\Package\Plugin\WordPressPlugin;
-use IM\Fabric\Plugin\PlSponsorTracking\Action\AdminFields\AddSponsorBox;
+use IM\Fabric\Plugin\SponsorTracking\Action\AdminFields\AddSponsorBox;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
-class PlSponsorTrackingPlugin extends WordPressPlugin
+class SponsorTrackingPlugin extends WordPressPlugin
 {
-    public const PLUGIN_ID = 'im-pl-sponsor-tracking';
+    public const PLUGIN_ID = 'im-sponsor-tracking';
 
     public function run(): void
     {

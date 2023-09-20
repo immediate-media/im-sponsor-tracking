@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace IM\Fabric\Plugin\PlSponsorTracking\Test\Filter;
+namespace IM\Fabric\Plugin\SponsorTracking\Test\Filter;
 
-use IM\Fabric\Plugin\PlSponsorTracking\Filter\ValidateTrackingCode;
+use IM\Fabric\Plugin\SponsorTracking\Filter\ValidateTrackingCode;
 use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use WP_Mock;

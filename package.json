@@ -1,5 +1,5 @@
 {
-  "name": "im-pl-sponsor-tracking",
+  "name": "im-sponsor-tracking",
   "version": "1.0.0",
   "scripts": {
     "dev": "impack --watch",
