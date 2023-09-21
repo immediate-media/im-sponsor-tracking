@@ -1,6 +1,6 @@
 <?php
 
-namespace IM\Fabric\Plugin\PlSponsorTracking\Filter;
+namespace IM\Fabric\Plugin\SponsorTracking\Filter;
 
 use IM\Fabric\Package\WordPress\Filter\Filter;
 use DOMDocument;
@@ -27,36 +27,13 @@ class ValidateTrackingCode extends Filter
             return $valid;
         }
 
-        $doc = new DOMDocument('1.0', 'utf-8');
-
-        libxml_use_internal_errors(true);
-        $charsetPrepend = '<?xml version="1.0" encoding="UTF-8"?>';
-        $doc->loadHTML($charsetPrepend . $value, LIBXML_NOERROR);
-
-        $imagesTags = $doc->getElementsByTagName('img');
-
-        if ($imagesTags->count() === 0) {
-            return __('Img tag not detected');
+        if (filter_var($value, FILTER_VALIDATE_URL) === false) {
+            return __('Invalid URL');
         }
 
-        /** @var DOMNode $imageNode */
-        foreach ($imagesTags->getIterator() as $imageNode) {
-            if (!$imageNode->hasAttribute('src')) {
-                return __('Pixel without src');
-            }
-            $src = trim($imageNode->getAttribute('src'));
-            $src = str_replace('\"', '', $src);
-
-            if (filter_var($src, FILTER_VALIDATE_URL) === false) {
-                return __('Invalid URL');
-            }
-
-            if (!$this->isValidDomain($src)) {
-                $urlParts = parse_url($src);
-                return __('Not allowed domains') . ': ' . $urlParts['host'];
-            }
+        if (!$this->isValidDomain($value)) {
+            return __('Not allowed domain');
         }
-
         return $valid;
     }
 

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace IM\Fabric\Plugin\PlSponsorTracking\Test\Factory;
+namespace IM\Fabric\Plugin\SponsorTracking\Test\Factory;
 
-use IM\Fabric\Plugin\PlSponsorTracking\Factory\AcfSponsorBoxFactory;
+use IM\Fabric\Plugin\SponsorTracking\Factory\AcfSponsorBoxFactory;
 use PHPUnit\Framework\TestCase;
 use IM\Fabric\Package\FormWrapper\Form\Component;
 

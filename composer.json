@@ -1,6 +1,6 @@
 {
-    "name": "immediate/im-pl-sponsor-tracking",
-    "description": "IM pl sponsor tracking Plugin",
+    "name": "immediate/im-sponsor-tracking",
+    "description": "IM sponsor tracking Plugin",
     "type": "wordpress-plugin",
     "license": "proprietary",
     "minimum-stability": "dev",
@@ -28,12 +28,12 @@
     },
     "autoload": {
         "psr-4": {
-            "IM\\Fabric\\Plugin\\PlSponsorTracking\\": "src/"
+            "IM\\Fabric\\Plugin\\SponsorTracking\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "IM\\Fabric\\Plugin\\PlSponsorTracking\\Test\\": "tests/"
+            "IM\\Fabric\\Plugin\\SponsorTracking\\Test\\": "tests/"
         }
     },
     "repositories": [
