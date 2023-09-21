@@ -47,7 +47,7 @@ class AcfSponsorBoxFactory
                         [
                             'field' => 'field_' . $formKey . '-is-sponsored',
                             'operator' => '==',
-                            'value' => 1,
+                            'value' => true,
                         ],
                     ],
                 ],
@@ -79,7 +79,7 @@ class AcfSponsorBoxFactory
                 $formKey . '-is-sponsored',
                 'true_false',
                 [
-                    'ui' => 1
+                    'ui' => true
                 ]
             ),
             new Input(
@@ -87,13 +87,13 @@ class AcfSponsorBoxFactory
                 $formKey . '-is-tracking-active',
                 'true_false',
                 [
-                    'ui' => 1,
+                    'ui' => true,
                     'conditional_logic' => [
                         [
                             [
                                 'field' => 'field_' . $formKey . '-is-sponsored',
                                 'operator' => '==',
-                                'value' => 1,
+                                'value' => true,
                             ],
                         ],
                     ]
@@ -112,7 +112,7 @@ class AcfSponsorBoxFactory
                             [
                                 'field' => 'field_' . $formKey . '-is-sponsored',
                                 'operator' => '==',
-                                'value' => 1,
+                                'value' => true,
                             ],
                         ],
                     ]
