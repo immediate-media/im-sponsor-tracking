@@ -1,13 +1,13 @@
 <?php
 
-namespace IM\Fabric\Plugin\PlSponsorTracking\Action\AdminFields;
+namespace IM\Fabric\Plugin\SponsorTracking\Action\AdminFields;
 
 use IM\Fabric\Package\FormWrapper\Form\Rule;
 use IM\Fabric\Package\FormWrapper\Form\RuleCollection;
 use IM\Fabric\Package\FormWrapper\Service\ComponentRegistrationInterface;
 use IM\Fabric\Package\WordPress\Action\Action;
 use IM\Fabric\Package\WpPost\PostTypes;
-use IM\Fabric\Plugin\PlSponsorTracking\Factory\AcfSponsorBoxFactory;
+use IM\Fabric\Plugin\SponsorTracking\Factory\AcfSponsorBoxFactory;
 
 /**
  * @SuppressWarnings(PHPMD.LongVariable)
@@ -16,7 +16,7 @@ class AddSponsorBox extends Action
 {
     protected $priority = 15;
 
-    public const SPONSOR_TRACKING = 'pl_sponsor_tracking';
+    public const SPONSOR_TRACKING = 'sponsor_tracking';
 
     public function __construct(
         private ComponentRegistrationInterface $componentRegistration,
@@ -28,10 +28,13 @@ class AddSponsorBox extends Action
     private function buildSponsorInformationRuleCollection(): RuleCollection
     {
         $ruleCollection = new RuleCollection();
+        $allowedPostType = ['post','recipe'];
 
         foreach ($this->postTypes->getEditorialPostTypes() as $postType) {
-            $rule = new Rule('post_type', '==', $postType);
-            $ruleCollection->addRuleSet($rule);
+            if (in_array($postType, $allowedPostType)) {
+                $rule = new Rule('post_type', '==', $postType);
+                $ruleCollection->addRuleSet($rule);
+            }
         }
 
         return $ruleCollection;
