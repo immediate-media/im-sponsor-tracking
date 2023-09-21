@@ -16,7 +16,7 @@ class ValidateTrackingCode extends Filter
         'secure-gl.imrworldwide.com',
         'edipresse.hit.gemius.pl'
     ];
-    public $arguments = 4;
+    public $arguments = 2;
 
     public function filter(...$args)
     {
