@@ -28,7 +28,10 @@ class SponsorTrackingPlugin extends WordPressPlugin
         );
 
         # Allow for external access to the filter (such as in im-headless-post)
-        $this->wordPress->addFilter(self::PLUGIN_ID . '-validate-tracking-code', $this->get(Filter\ValidateTrackingCode::class));
+        $this->wordPress->addFilter(
+            self::PLUGIN_ID . '-validate-tracking-code',
+            $this->get(Filter\ValidateTrackingCode::class)
+        );
     }
 
     /** @SuppressWarnings(PHPMD.StaticAccess) */

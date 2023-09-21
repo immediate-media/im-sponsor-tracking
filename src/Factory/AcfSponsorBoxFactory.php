@@ -47,7 +47,7 @@ class AcfSponsorBoxFactory
                         [
                             'field' => 'field_' . $formKey . '-is-sponsored',
                             'operator' => '==',
-                            'value' => true,
+                            'value' => 1,
                         ],
                     ],
                 ],
@@ -93,7 +93,7 @@ class AcfSponsorBoxFactory
                             [
                                 'field' => 'field_' . $formKey . '-is-sponsored',
                                 'operator' => '==',
-                                'value' => true,
+                                'value' => 1,
                             ],
                         ],
                     ]
@@ -112,7 +112,7 @@ class AcfSponsorBoxFactory
                             [
                                 'field' => 'field_' . $formKey . '-is-sponsored',
                                 'operator' => '==',
-                                'value' => true,
+                                'value' => 1,
                             ],
                         ],
                     ]
