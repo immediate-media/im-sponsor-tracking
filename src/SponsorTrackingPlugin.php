@@ -26,6 +26,9 @@ class SponsorTrackingPlugin extends WordPressPlugin
             "acf/validate_value/key=field_" . AddSponsorBox::SPONSOR_TRACKING . "-item-repeater-pixel-code",
             $this->get(Filter\ValidateTrackingCode::class)
         );
+
+        # Allow for external access to the filter (such as in im-headless-post)
+        $this->wordPress->addFilter(self::PLUGIN_ID . '-validate-tracking-code', $this->get(Filter\ValidateTrackingCode::class));
     }
 
     /** @SuppressWarnings(PHPMD.StaticAccess) */
