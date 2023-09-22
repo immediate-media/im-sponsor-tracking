@@ -123,7 +123,6 @@ class AcfSponsorBoxFactory
             $trackingPixelRepeater,
         );
 
-
         return [$group];
     }
 }
