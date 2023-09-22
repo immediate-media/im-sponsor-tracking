@@ -5,6 +5,7 @@ namespace IM\Fabric\Plugin\SponsorTracking\Factory;
 use IM\Fabric\Package\FormWrapper\Form\Component;
 use IM\Fabric\Package\FormWrapper\Form\Config\ComponentConfig;
 use IM\Fabric\Package\FormWrapper\Form\Input;
+use DateTime;
 
 class AcfSponsorBoxFactory
 {
@@ -107,6 +108,7 @@ class AcfSponsorBoxFactory
                     'return_format' => "Y-m-d",
                     'display_format' => "Y-m-d",
                     'first_day' => 1,
+                    'default_value' => (new DateTime())->modify('+ 1 year')->format('Ymd'),
                     'conditional_logic' => [
                         [
                             [
