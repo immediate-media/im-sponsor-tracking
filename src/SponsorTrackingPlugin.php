@@ -32,6 +32,12 @@ class SponsorTrackingPlugin extends WordPressPlugin
             self::PLUGIN_ID . '-validate-tracking-code',
             $this->get(Filter\ValidateTrackingCode::class)
         );
+
+        # Add isSponsored flag to Timber context when on the 'single' template
+        $this->wordPress->addFilter(
+            'render_content_data_filter',
+            $this->get(Filter\AddIsSponsoredFlagToTimberContext::class)
+        );
     }
 
     /** @SuppressWarnings(PHPMD.StaticAccess) */

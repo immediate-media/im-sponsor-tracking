@@ -13,8 +13,8 @@ class ValidateTrackingCodeTest extends TestCase
 {
     use MockeryPHPUnitIntegration;
 
-
     private ValidateTrackingCode $filter;
+
     public function setUp(): void
     {
         $this->filter = new ValidateTrackingCode();
