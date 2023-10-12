@@ -64,7 +64,7 @@ class AcfSponsorBoxFactory
             new Input(
                 __('Tracking Pixel Code', IM_SPONSOR_TRACKING_PLUGIN_ID),
                 $repeaterKey . '-pixel-code',
-                'url',
+                'text',
                 [
                     'wrapper' => [
                         'class' => 'im-compact'
