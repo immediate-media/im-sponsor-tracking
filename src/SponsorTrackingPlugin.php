@@ -33,6 +33,11 @@ class SponsorTrackingPlugin extends WordPressPlugin
             $this->get(Filter\ValidateTrackingCode::class)
         );
 
+        $this->wordPress->addFilter(
+            "acf/update_value/key=field_" . AddSponsorBox::SPONSOR_TRACKING . "-item-repeater-pixel-code",
+            $this->get(Filter\PreparePixelValue::class)
+        );
+
         # Add isSponsored flag to Timber context when on the 'single' template
         $this->wordPress->addFilter(
             'render_content_data_filter',
