@@ -3,8 +3,6 @@
 namespace IM\Fabric\Plugin\SponsorTracking\Filter;
 
 use IM\Fabric\Package\WordPress\Filter\Filter;
-use DOMDocument;
-use DOMNode;
 
 class ValidateTrackingCode extends Filter
 {

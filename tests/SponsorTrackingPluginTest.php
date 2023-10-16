@@ -10,6 +10,7 @@ use IM\Fabric\Package\WpPost\PostTypes;
 use IM\Fabric\Plugin\SponsorTracking\Action\AdminFields\AddSponsorBox;
 use IM\Fabric\Plugin\SponsorTracking\Action\LoadPluginTextDomain;
 use IM\Fabric\Plugin\SponsorTracking\Filter\AddIsSponsoredFlagToTimberContext;
+use IM\Fabric\Plugin\SponsorTracking\Filter\PreparePixelValue;
 use IM\Fabric\Plugin\SponsorTracking\Filter\ValidateTrackingCode;
 use IM\Fabric\Plugin\SponsorTracking\SponsorTrackingPlugin;
 use Mockery;
@@ -29,6 +30,7 @@ class SponsorTrackingPluginTest extends TestCase
     ];
     private const EXPECTED_FILTERS = [
         ['acf/validate_value/key=field_sponsor_tracking-item-repeater-pixel-code', ValidateTrackingCode::class],
+        ['acf/update_value/key=field_sponsor_tracking-item-repeater-pixel-code', PreparePixelValue::class],
         ['im-sponsor-tracking-validate-tracking-code', ValidateTrackingCode::class],
         ['render_content_data_filter', AddIsSponsoredFlagToTimberContext::class]
     ];
