@@ -15,11 +15,11 @@ class RepublishPost extends Filter implements WordPressAwareInterface
     {
         [$postId] = $args;
 
-        $isSponsoredKey = AddSponsorBox::SPONSOR_TRACKING . '-metabox_'
-            . AddSponsorBox::SPONSOR_TRACKING . '-is-sponsored';
+        $isTrackingActiveKey = AddSponsorBox::SPONSOR_TRACKING . '-metabox_'
+            . AddSponsorBox::SPONSOR_TRACKING . '-is-tracking-active';
 
         try {
-            update_field($isSponsoredKey, false, $postId);
+            update_field($isTrackingActiveKey, false, $postId);
         } catch (Exception $e) {
             error_log('Unable to update sponsor tracking data: ' . $e->getMessage());
         }

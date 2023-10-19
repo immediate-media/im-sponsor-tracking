@@ -9,17 +9,17 @@ class PixelDataProvider
 {
     public function isExpireDateAdded(int $postId): bool
     {
-        $isSponsoredKey = AddSponsorBox::SPONSOR_TRACKING . '-metabox_'
-            . AddSponsorBox::SPONSOR_TRACKING . '-is-sponsored';
+        $isTrackingActiveKey = AddSponsorBox::SPONSOR_TRACKING . '-metabox_'
+            . AddSponsorBox::SPONSOR_TRACKING . '-is-tracking-active';
 
-        $isSponsored = get_field($isSponsoredKey, $postId);
+        $isTrackingActive = get_field($isTrackingActiveKey, $postId);
         $expirationDate = $this->getExpireDate($postId);
         if (!$expirationDate) {
             return false;
         }
         $today = new DateTime();
 
-        return $isSponsored && $expirationDate > $today;
+        return $isTrackingActive && $expirationDate > $today;
     }
 
     /**
