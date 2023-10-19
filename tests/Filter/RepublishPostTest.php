@@ -23,24 +23,24 @@ class RepublishPostTest extends TestCase
             ->expects($this->never())
             ->method('doAction');
 
-        WP_Mock::userFunction('is_wp_error', [
-            'args' => 1,
-            'times' => 1,
-            'return' => false
-        ]);
+        WP_Mock::userFunction('is_wp_error')
+            ->once()
+            ->with(1)
+            ->andReturns(false);
 
-        WP_Mock::userFunction('update_field', [
-            'times' => 1,
-            'return' => true
-        ]);
+        WP_Mock::userFunction('update_field')
+            ->once()
+            ->andReturns(true);
 
-        WP_Mock::userFunction('wp_update_post', [
-            'args' => [[
-                'ID' => 1
-            ], true],
-            'times' => 1,
-            'return' => 1
-        ]);
+        WP_Mock::userFunction('wp_update_post')
+            ->once()
+            ->with(
+                [
+                    'ID' => 1
+                ],
+                true
+            )
+            ->andReturns(1);
 
         $republishPost = new RepublishPost();
         $republishPost->setWordPress($wordPress);
@@ -79,24 +79,24 @@ class RepublishPostTest extends TestCase
             );
 
 
-        WP_Mock::userFunction('is_wp_error', [
-            'args' => [$result],
-            'times' => 1,
-            'return' => true
-        ]);
+        WP_Mock::userFunction('is_wp_error')
+            ->once()
+            ->with($result)
+            ->andReturns(true);
 
-        WP_Mock::userFunction('update_field', [
-            'times' => 1,
-            'return' => true
-        ]);
+        WP_Mock::userFunction('update_field')
+            ->once()
+            ->andReturns(true);
 
-        WP_Mock::userFunction('wp_update_post', [
-            'args' => [[
-                'ID' => 1
-            ], true],
-            'times' => 1,
-            'return' => $result
-        ]);
+        WP_Mock::userFunction('wp_update_post')
+            ->once()
+            ->with(
+                [
+                    'ID' => 1
+                ],
+                true
+            )
+            ->andReturns($result);
 
         $republishPost = new RepublishPost();
         $republishPost->setWordPress($wordPress);

@@ -40,14 +40,12 @@ class ScheduleHandlerTest extends TestCase
             ->once()
             ->andReturn([$row]);
 
-        WP_Mock::userFunction('get_post_meta', [
-            'times' => 1,
-            'return' => [1, 2]
-        ]);
+        WP_Mock::userFunction('get_post_meta')
+            ->once()
+            ->andReturns([1, 2]);
 
-        WP_Mock::userFunction('update_post_meta', [
-            'times' => 1
-        ]);
+        WP_Mock::userFunction('update_post_meta')
+            ->once();
 
         $scheduleHandler = new ScheduleHandler($dataProvider);
         $scheduleHandler->setWordpress($wordPress);

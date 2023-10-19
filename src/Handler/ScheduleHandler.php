@@ -15,11 +15,8 @@ class ScheduleHandler implements WordPressAwareInterface
     public const SPONSOR_TRACKING_REPUBLISH = 'sponsor_tracking_republish';
     private const SPONSOR_TRACKING_KEY = 'IM_SPONSOR_TRACKING_PLUGIN_ID';
 
-    private PixelDataProvider $dataProvider;
-
-    public function __construct(PixelDataProvider $dataProvider)
+    public function __construct(private PixelDataProvider $dataProvider)
     {
-        $this->dataProvider = $dataProvider;
     }
 
     public function updateSchedule(int $postId): void

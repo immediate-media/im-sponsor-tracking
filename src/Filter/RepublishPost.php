@@ -21,7 +21,10 @@ class RepublishPost extends Filter implements WordPressAwareInterface
         try {
             update_field($isTrackingActiveKey, false, $postId);
         } catch (Exception $e) {
-            error_log('Unable to update sponsor tracking data: ' . $e->getMessage());
+            trigger_error(
+                'Unable to update sponsor tracking data: ' . $e->getMessage(),
+                E_USER_WARNING
+            );
         }
 
         $result = wp_update_post(

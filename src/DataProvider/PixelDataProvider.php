@@ -17,9 +17,8 @@ class PixelDataProvider
         if (!$expirationDate) {
             return false;
         }
-        $today = new DateTime();
 
-        return $isTrackingActive && $expirationDate > $today;
+        return $isTrackingActive && $expirationDate > new DateTime();
     }
 
     /**

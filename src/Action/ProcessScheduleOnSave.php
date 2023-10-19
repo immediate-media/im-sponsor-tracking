@@ -8,14 +8,8 @@ use IM\Fabric\Plugin\SponsorTracking\Handler\ScheduleHandler;
 
 class ProcessScheduleOnSave extends Action
 {
-    private ScheduleHandler $scheduleHandler;
-
-    private PixelDataProvider $dataProvider;
-
-    public function __construct(PixelDataProvider $dataProvider, ScheduleHandler $scheduleHandler)
+    public function __construct(private PixelDataProvider $dataProvider, private ScheduleHandler $scheduleHandler)
     {
-        $this->dataProvider = $dataProvider;
-        $this->scheduleHandler = $scheduleHandler;
     }
 
     public function action(...$args)

@@ -13,8 +13,7 @@
         "immediate/im-options-wrapper": "^1.1",
         "immediate/im-auth-token-generator": "^1.0",
         "immediate/im-form-wrapper": "^2.0",
-        "immediate/im-wp-core-contracts": "^1.0",
-        "immediate/im-action-scheduler": "dev-develop"
+        "immediate/im-wp-core-contracts": "^1.0"
     },
     "require-dev": {
         "10up/wp_mock": "dev-immediate-fixes as 0.4.3",
@@ -25,7 +24,8 @@
         "phpunit/phpunit": "^9.5",
         "roave/security-advisories": "dev-latest",
         "squizlabs/php_codesniffer": "^3.7",
-        "doctrine/annotations": "1.*"
+        "doctrine/annotations": "1.*",
+        "immediate/im-action-scheduler": "dev-develop"
     },
     "autoload": {
         "psr-4": {

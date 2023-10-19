@@ -26,11 +26,10 @@ class ProcessScheduleOnSaveTest extends TestCase
         $post = new stdClass();
         $post->post_status = 'publish';
 
-        WP_Mock::userFunction('get_post', [
-            'args' => [1],
-            'times' => 1,
-            'return' => $post
-        ]);
+        WP_Mock::userFunction('get_post')
+            ->once()
+            ->with(1)
+            ->andReturns($post);
 
         $action = new ProcessScheduleOnSave($dataProvider, $scheduleHandler);
         $action->action(1);
@@ -47,11 +46,10 @@ class ProcessScheduleOnSaveTest extends TestCase
         $post = new stdClass();
         $post->post_status = 'draft';
 
-        WP_Mock::userFunction('get_post', [
-            'args' => [1],
-            'times' => 1,
-            'return' => $post
-        ]);
+        WP_Mock::userFunction('get_post')
+            ->once()
+            ->with(1)
+            ->andReturns($post);
 
         $action = new ProcessScheduleOnSave($dataProvider, $scheduleHandler);
         $action->action(1);
@@ -68,11 +66,10 @@ class ProcessScheduleOnSaveTest extends TestCase
         $post = new stdClass();
         $post->post_status = 'publish';
 
-        WP_Mock::userFunction('get_post', [
-            'args' => [1],
-            'times' => 1,
-            'return' => $post
-        ]);
+        WP_Mock::userFunction('get_post')
+            ->once()
+            ->with(1)
+            ->andReturns($post);
 
         $action = new ProcessScheduleOnSave($dataProvider, $scheduleHandler);
         $action->action(1);
