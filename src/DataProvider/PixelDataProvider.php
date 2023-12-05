@@ -35,6 +35,18 @@ class PixelDataProvider
             return null;
         }
 
-        return DateTime::createFromFormat('Y-m-d', $expirationDateString);
+        $expireDate = DateTime::createFromFormat('Y-m-d', $expirationDateString);
+
+        // alternate format - stored in database
+        if ($expireDate === false) {
+            $expireDate = DateTime::createFromFormat('Ymd', $expirationDateString);
+        }
+
+        // if still invalid format
+        if ($expireDate === false) {
+            return null;
+        }
+
+        return $expireDate;
     }
 }
